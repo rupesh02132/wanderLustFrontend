@@ -18,6 +18,7 @@ import BookingDetailsScreen from '../screens/BookingDetailsScreen'
 import UserProfile from '../screens/UserProfile.jsx'
 import Map from '../screens/MapScreen'
 import MapScreen from '../screens/MapScreen'
+import ContactPage from '../screens/ContactPage.js'
 
 const CustomerRouters = () => {
   return (
@@ -40,6 +41,7 @@ const CustomerRouters = () => {
             <Route path='/bookings/:bookingId' element={<BookingDetailsScreen/>} />
             <Route path='/Dashboard' element={<UserDashboardScreen/>} />
             <Route path='/payment/:bookingId' element={<PaymentSuccess/>} />
+            <Route path='/contact' element={<ContactPage/>} />
 
             <Route path='/map' element={<Map/>} />
              <Route path="/map/:id" element={<MapScreen />} />
