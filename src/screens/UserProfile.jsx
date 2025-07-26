@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Avatar, Button, Card, CardContent, Typography, Divider } from "@mui/material";
+import { Avatar,  Card, CardContent, Typography, Divider } from "@mui/material";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../state/auth/Action';
@@ -8,14 +8,14 @@ const UserProfile = () => {
 
   const {auth } = useSelector(store=>store);
    console.log('auth from login', auth.user.user);
-   const { loading, error, jwt } = auth;
+   const {jwt } = auth;
    console.log("iii",auth.user.user.firstname?.slice(0,1).toUpperCase());
 
    useEffect(() => {
       if (jwt && !auth.user) {  
         dispatch(getUser(jwt));
       }
-    }, [jwt]);
+    }, [dispatch,auth.user,jwt]);
 
 
   const user = {
@@ -24,9 +24,16 @@ const UserProfile = () => {
     avatar: "https://i.pravatar.cc/150?img=3",
     location: "India",
     bio: "Loves to travel and explore new places.",
-    joined: "January 2025",
+    joined: auth.user.user.createdAt,
   };
+const date = new Date(user.joined);
 
+const options = { 
+  timeZone: 'Asia/Kolkata', 
+  day: 'numeric', 
+  month: 'long', 
+  year: 'numeric' 
+};
   return (
     <Container className="my-5">
       <Card className="shadow-lg rounded-xl">
@@ -48,9 +55,7 @@ const UserProfile = () => {
               <Typography variant="body2" color="textSecondary">
                 {auth.user.user.email}
               </Typography>
-              {/* <Button variant="contained" color="primary" className="mt-3"> */}
-                {/* Edit Profile */}
-              {/* </Button> */}
+             
             </Col>
 
             {/* Right Column - Profile Details */}
@@ -62,7 +67,7 @@ const UserProfile = () => {
               <div className="space-y-2 text-gray-700 text-sm">
                 <p><span className="font-medium">Location:</span> {user.location}</p>
                 <p><span className="font-medium">About:</span> {user.bio}</p>
-                <p><span className="font-medium">Joined:</span> {user.joined}</p>
+                <p><span className="font-medium">Joined:</span> {date.toLocaleDateString('en-IN', options)}</p>
               </div>
 
               <div className="mt-6">

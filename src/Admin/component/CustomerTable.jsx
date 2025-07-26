@@ -32,19 +32,19 @@ const CustomerTable = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className="px-1 sm:px-3 md:px-5 py-2 sm:py-4">
       <Card>
-        <CardHeader title="Registered Customers" />
-        <TableContainer component={Paper}>
-          <Table>
+        <CardHeader title="Registered Customers" sx={{ textAlign: 'center', fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' }, px: { xs: 1, sm: 2, md: 3 }, py: { xs: 1, sm: 2 } }} />
+        <TableContainer component={Paper} sx={{ width: '100%', overflowX: 'auto' }}>
+          <Table size="small" sx={{ minWidth: 600 }}>
             <TableHead className="bg-gray-200">
               <TableRow>
-                <TableCell align="center">Avatar</TableCell>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Email</TableCell>
-                <TableCell align="center">Phone</TableCell>
-                <TableCell align="center">Role</TableCell>
-                <TableCell align="center">Delete</TableCell>
+                <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.9rem' }, px: { xs: 0.5, sm: 1 } }}>Avatar</TableCell>
+                <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.9rem' }, px: { xs: 0.5, sm: 1 } }}>Name</TableCell>
+                <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.9rem' }, px: { xs: 0.5, sm: 1 } }}>Email</TableCell>
+                <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.9rem' }, px: { xs: 0.5, sm: 1 } }}>Phone</TableCell>
+                <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.9rem' }, px: { xs: 0.5, sm: 1 } }}>Role</TableCell>
+                <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.9rem' }, px: { xs: 0.5, sm: 1 } }}>Delete</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -52,21 +52,22 @@ const CustomerTable = () => {
                 users.map((user) => (
                   <TableRow key={user._id}>
                     <TableCell align="center">
-                      <Avatar src={user.avatar || undefined}>
-                        {!user.avatar &&
-                          user.firstname?.charAt(0).toUpperCase()}
+                      <Avatar src={user.avatar || undefined} sx={{ width: { xs: 26, sm: 36 }, height: { xs: 26, sm: 36 }, mx: 'auto' }}>
+                        {!user.avatar && user.firstname?.charAt(0).toUpperCase()}
                       </Avatar>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.85rem' }, maxWidth: { xs: 70, sm: 120 }, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {user.firstname} {user.lastname}
                     </TableCell>
-                    <TableCell align="center">{user.email}</TableCell>
-                    <TableCell align="center">{user.phone}</TableCell>
-                    <TableCell align="center">{user.role}</TableCell>
+                    <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.85rem' }, maxWidth: { xs: 90, sm: 180 }, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user.email}</TableCell>
+                    <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.85rem' } }}>{user.phone}</TableCell>
+                    <TableCell align="center" sx={{ fontSize: { xs: '0.7rem', sm: '0.85rem' } }}>{user.role}</TableCell>
                     <TableCell align="center">
                       <Button
                         variant="contained"
                         color="error"
+                        size="small"
+                        sx={{ fontSize: { xs: '0.65rem', sm: '0.8rem' }, px: { xs: 0.7, sm: 2 }, py: { xs: 0.3, sm: 1 }, minWidth: { xs: 48, sm: 64 } }}
                         onClick={() => handleDelete(user._id)}
                       >
                         Delete
@@ -76,7 +77,7 @@ const CustomerTable = () => {
                 ))
               ) : (
                 <TableRow>
-                  <TableCell colSpan={5} align="center">
+                  <TableCell colSpan={6} align="center">
                     No users found.
                   </TableCell>
                 </TableRow>

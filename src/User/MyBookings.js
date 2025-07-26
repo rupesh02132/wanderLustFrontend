@@ -31,7 +31,7 @@ const MyBookings = ({ bookings }) => {
                   {new Date(booking.checkIn).toLocaleDateString()} - {' '}
                   {new Date(booking.checkOut).toLocaleDateString()}
                 </td>
-                <td>${booking.totalPrice}</td>
+                <td>₹{booking.totalPrice}</td>
                 <td>
                   <Badge bg={booking.isPaid ? 'success' : 'warning'}>
                     {booking.isPaid ? 'Confirmed' : 'Pending Payment'}

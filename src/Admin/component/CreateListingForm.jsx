@@ -127,8 +127,8 @@ const CreateListingForm = () => {
   };
 
   return (
-    <div className="p-4 sm:p-10">
-      <Typography variant="h4" align="center" gutterBottom>
+    <div className="px-1 sm:px-4 md:px-10 py-2 sm:py-6" style={{ maxWidth: 900, margin: '0 auto' }}>
+      <Typography variant="h4" align="center" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem' } }}>
         {id ? "Edit Listing" : "Create New Listing"}
       </Typography>
 
@@ -141,7 +141,7 @@ const CreateListingForm = () => {
       )}
 
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 2, sm: 3 }}>
           <Grid item xs={12}>
             <TextField
               {...textFieldProps}
@@ -283,6 +283,7 @@ const CreateListingForm = () => {
                 fullWidth
                 value={img}
                 onChange={(e) => handleImageChange(index, e.target.value)}
+                sx={{ mb: { xs: 1, sm: 2 } }}
               />
             </Grid>
           ))}
@@ -292,7 +293,7 @@ const CreateListingForm = () => {
               variant="outlined"
               fullWidth
               onClick={addImageField}
-              sx={{ py: 1 }}
+              sx={{ py: { xs: 0.7, sm: 1 }, fontSize: { xs: '0.9rem', sm: '1rem' }, mb: { xs: 1, sm: 2 } }}
             >
               + Add More Images
             </Button>
@@ -348,7 +349,7 @@ const CreateListingForm = () => {
               variant="contained"
               fullWidth
               type="submit"
-              sx={{ py: 1.5 }}
+              sx={{ py: { xs: 1, sm: 1.5 }, fontSize: { xs: '1rem', sm: '1.1rem' } }}
             >
               {id ? "Update Listing" : "Create Listing"}
             </Button>

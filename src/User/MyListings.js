@@ -23,7 +23,7 @@ const MyListings = ({ listings }) => {
             {listings.listing.map(listing => (
               <tr key={listing._id}>
                 <td>{listing.title}</td>
-                <td>${listing.price}</td>
+                <td>₹{listing.price}</td>
                 <td>{listing.category}</td>
                 <td>
                   <Badge bg={listing.isPublished ? 'success' : 'secondary'}>

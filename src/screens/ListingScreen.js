@@ -29,7 +29,7 @@ const ListingScreen = () => {
   const listingData = listings?.listing || {};
   const { loading, error } = listings;
 
-  console.log("auth", auth.user.user);
+  // console.log("auth", auth.user?.user);
   const { bookings } = useSelector((store) => store);
 
 
@@ -39,6 +39,7 @@ const ListingScreen = () => {
 
   //all for review or rating..
   const { reviews } = useSelector((store) => store.review);
+  console.log("reviews", reviews);
 
   const listingId = id;
   const filteredReviews = reviews.filter((r) => r.listing === listingId);
@@ -320,7 +321,7 @@ const bookingHandler = async (e) => {
                       })}
 
                       {auth &&
-                        (auth.user.user._id === review.user._id ||
+                        (auth.user.user._id === review.user?._id ||
                           auth.user.user.role === "admin") && (
                           <Button
                             size="sm"

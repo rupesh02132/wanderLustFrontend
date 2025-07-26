@@ -43,11 +43,11 @@ const navigate = useNavigate();
   };
 
   return (
-    <Row className="justify-content-md-center mt-5">
-      <Col xs={12} md={8} lg={6}>
-        <Card className="shadow-sm border-0 rounded-4 p-4">
+    <Row className="justify-content-center mt-4 px-1 px-sm-2 px-md-3 px-lg-4">
+      <Col xs={12} sm={10} md={8} lg={6} xl={5} style={{ maxWidth: 500 }}>
+        <Card className="shadow-sm border-0 rounded-4 p-2 p-sm-3 p-md-4">
           <Card.Body>
-            <h2 className="text-center mb-4">Add User (Admin Panel)</h2>
+            <h2 className="text-center mb-3 mb-sm-4" style={{ fontSize: '1.5rem' }}>Add User (Admin Panel)</h2>
 
             {error && <Message variant="danger">{error}</Message>}
             {phoneError && <Message variant="danger">{phoneError}</Message>}
@@ -56,7 +56,7 @@ const navigate = useNavigate();
 
             <Form onSubmit={handleSubmit}>
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Form.Group controlId="firstname" className="mb-3">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control
@@ -67,7 +67,7 @@ const navigate = useNavigate();
                     />
                   </Form.Group>
                 </Col>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Form.Group controlId="lastname" className="mb-3">
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control
@@ -120,7 +120,7 @@ const navigate = useNavigate();
                 </Form.Select>
               </Form.Group>
 
-              <Button type="submit" variant="primary" className="w-100 py-2 rounded-3">
+              <Button type="submit" variant="primary" className="w-100 py-2 rounded-3" style={{ fontSize: '1rem' }}>
                 Create Account
               </Button>
             </Form>

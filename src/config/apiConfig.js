@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const API_BASE_URL = "http://localhost:5354";
+export const API_BASE_URL = "https://wanderlustbackend-production-4ac4.up.railway.app/";
 
 export const api = axios.create({ 
-    baseURL:"http://localhost:5354",
+    baseURL: API_BASE_URL,
     headers: { 
         "Authorization": `Bearer ${localStorage.getItem("jwt")}`,  
         "Content-Type": "application/json" 
