@@ -199,9 +199,10 @@ export const listingReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        listings:action.payload,
         error: null,
         success: true,
-        listings:action.payload,
+        
       }
       case GET_ALL_LISTINGS_FAILURE:
       return {

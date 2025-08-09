@@ -86,7 +86,7 @@ export const updateListing = (listing) =>async (dispatch) => {
 export const deleteListing = (listingId) =>async (dispatch) => {
     dispatch({ type: DELETE_LISTING_REQUEST, payload: null });
     try{
-        const {data}=await api.delete(`/api/listings/${listingId}/delete`);
+        await api.delete(`/api/listings/${listingId}/delete`);
         dispatch({ type: DELETE_LISTING_SUCCESS, payload: listingId });
     }catch(error){
         dispatch({ type: DELETE_LISTING_FAILURE, payload: error.message }); 
@@ -98,6 +98,7 @@ export const listListingDetails = (listingId) =>async (dispatch) => {
     try{
         const {data}=await api.get(`/api/listings/${listingId}`);
         dispatch({ type: GET_LISTING_SUCCESS, payload: data });
+        console.log("lisiting by id", data);
     }catch(error){
         dispatch({ type: GET_LISTING_FAILURE, payload: error.message }); 
     }
@@ -105,6 +106,7 @@ export const listListingDetails = (listingId) =>async (dispatch) => {
 
 
 export const getListingById = (listingId) => async (dispatch) => {
+    console.log("listing",listingId)
   dispatch({ type: GET_LISTING_BY_ID_REQUEST });
 
   try {
@@ -123,6 +125,7 @@ export const getAllListings = () =>async (dispatch) => {
     try{
         const {data}=await api.get(`/api/listings/all`);
         dispatch({ type: GET_ALL_LISTINGS_SUCCESS, payload: data });
+        console.log("all listings", data);
     }catch(error){
         dispatch({ type: GET_ALL_LISTINGS_FAILURE, payload: error.message }); 
     }

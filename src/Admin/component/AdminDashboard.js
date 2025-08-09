@@ -91,7 +91,7 @@ const AdminDashboardScreen = () => {
           headers={['Listing', 'Total', 'Paid']}
           rows={userBookings?.slice(0, 10).map(b => [
             b.listing?.title,
-            `$${b.totalPrice}`,
+            `₹${b.totalPrice}`,
             b.isPaid ? 'Yes' : 'No',
           ])}
           loading={bookingsLoading}

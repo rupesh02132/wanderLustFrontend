@@ -19,6 +19,7 @@ import {
 const ListingTable = () => {
   const dispatch = useDispatch();
   const { listings } = useSelector((store) => store);
+  
 
   const handleDeleteProduct = (listingId) => {
     dispatch(deleteListing(listingId));

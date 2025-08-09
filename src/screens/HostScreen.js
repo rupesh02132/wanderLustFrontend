@@ -15,14 +15,15 @@ console.log("user",userId)
   //   Array.isArray(s.listings) ? s.listing : []
   // );
 
+  // const {listings} = useSelector((store) => store.listings);
   const {listings} = useSelector((store) => store.listings);
- console.log("listings from host..",listings);
-//  const listings=listing.listings;
+  console.log("listings from host..",listings);
+  // const listings=listing.listings;
 
   // Fetch listings on mount
- useEffect(() => {
-      dispatch(getAllListings({}));
-    }, [dispatch]);
+useEffect(() => {
+    dispatch(getAllListings({}));
+  }, [dispatch]);
   
 
 const hostListings = listings?.filter((l) => {

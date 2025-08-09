@@ -124,7 +124,8 @@ const HomeScreen = () => {
                 key={listing._id} 
                 className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
               >
-                <ListingCard listing={listing} />
+                <div className="flex flex-wrap m-1"><ListingCard listing={listing} /></div>
+                
               </Link>
             ))}
           </div>

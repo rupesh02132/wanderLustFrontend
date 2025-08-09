@@ -24,6 +24,7 @@ const ListingScreen = () => {
   const [guests, setGuests] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState("Credit Card");
   const { id } = useParams();
+  
 
   const { listings, auth } = useSelector((store) => store);
   const listingData = listings?.listing || {};
@@ -60,8 +61,8 @@ const ListingScreen = () => {
 
   useEffect(() => {
     dispatch(getAllReviews());
-    dispatch(getListingById(id));
-  }, [dispatch, id]);
+    dispatch(getListingById(listingId));
+  }, [dispatch, listingId]);
 
   useEffect(
     (bookingId) => {
@@ -277,7 +278,7 @@ const bookingHandler = async (e) => {
                       onClick={bookingHandler}
                     >
                       {checkIn && checkOut
-                        ? `Book for $${listingData.price * calculateNights()}`
+                        ? `Book for ₹${listingData.price * calculateNights()}`
                         : "Select dates to book"}
                     </button>
                   </form>
