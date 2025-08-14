@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Message from '../components/Message';
 
 const MyBookings = ({ bookings }) => {
+
+  console.log("MyBookings", bookings);
   return (
     <div className="my-bookings">
       {bookings?.length === 0 ? (
@@ -20,7 +22,7 @@ const MyBookings = ({ bookings }) => {
             </tr>
           </thead>
           <tbody>
-            {bookings.userBookings?.map(booking => (
+            {bookings.map(booking => (
               <tr key={booking._id}>
                 <td>
                   <Link to={`/listings/${booking.listing?._id}`}>

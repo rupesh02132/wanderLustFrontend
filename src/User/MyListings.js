@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Message from '../components/Message';
 
 const MyListings = ({ listings }) => {
+  console.log("MyListings", listings);
   return (
     <div className="my-listings">
       {listings.length === 0 ? (

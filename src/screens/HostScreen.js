@@ -11,20 +11,14 @@ const HostScreen = () => {
   const userId = useSelector((s) => s.auth?.user?.user?._id || '');
 console.log("user",userId)
 
-  // const listings = useSelector((s) =>
-  //   Array.isArray(s.listings) ? s.listing : []
-  // );
-
-  // const {listings} = useSelector((store) => store.listings);
-  const {listings} = useSelector((store) => store.listings);
-  console.log("listings from host..",listings);
-  // const listings=listing.listings;
-
+const listings1 = useSelector((store) => store.listings);
+const listings = listings1?.listing.listings || [];
+// const {listings} = useSelector((store) => store.listings);
+console.log("listings from host..",listings);
   // Fetch listings on mount
 useEffect(() => {
     dispatch(getAllListings({}));
   }, [dispatch]);
-  
 
 const hostListings = listings?.filter((l) => {
   const id = typeof l.user === 'string' ? l.user : l.user?._id;
